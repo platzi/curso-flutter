@@ -26,10 +26,11 @@ class HomeScreen extends StatelessWidget {
 
   Future<void> _showBottom(BuildContext context) {
     return showModalBottomSheet(
+        isScrollControlled: true,
         context: context,
         builder: (contexto) => Container(
               width: MediaQuery.of(context).size.width,
-              height: 500,
+              height: 600,
               color: Colors.white,
               child: RecipeForm(),
             ));
@@ -95,7 +96,7 @@ class RecipeForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.all(8),
+        padding: EdgeInsets.all(12),
         child: Form(
           //key: _formKey,
           child: Column(
@@ -111,7 +112,22 @@ class RecipeForm extends StatelessWidget {
               SizedBox(
                 height: 16,
               ),
-              _buildTextField(label: 'Recipe Name')
+              _buildTextField(label: 'Recipe Name'),
+              SizedBox(
+                height: 16,
+              ),
+              _buildTextField(label: 'Author'),
+              SizedBox(
+                height: 16,
+              ),
+              _buildTextField(label: 'Image Url'),
+              SizedBox(
+                height: 16,
+              ),
+              _buildTextField(label: 'Recipe'),
+              SizedBox(
+                height: 16,
+              ),
             ],
           ),
         ));
