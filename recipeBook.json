@@ -1,0 +1,94 @@
+{
+  "uuid": "0a3498f3-2878-4c61-88aa-d90672fe5905",
+  "lastMigration": 33,
+  "name": "RecipeBook",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 12346,
+  "hostname": "0.0.0.0",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "247a3988-bbba-4578-89b9-f5a1904f4c30",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "recipes",
+      "responses": [
+        {
+          "uuid": "8bea27e6-0a66-499b-a22b-40f56d96d29e",
+          "body": "{\r\n  \"recipes\": [\r\n    {\r\n      \"name\": \"Espaguetis a la Carbonara\",\r\n      \"author\": \"Chef María López\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/Espagueti_2619917177.jpeg\",\r\n      \"recipe\": [\r\n        \"Cuece los espaguetis en agua con sal hasta que estén al dente.\",\r\n        \"En un bol, bate huevos y añade queso parmesano rallado.\",\r\n        \"Fríe panceta en una sartén hasta que esté crujiente.\",\r\n        \"Mezcla los espaguetis con la panceta y la mezcla de huevo y queso.\",\r\n        \"Sirve con más queso y pimienta negra al gusto.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Ensalada César\",\r\n      \"author\": \"Chef Juan Martínez\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/cesar_858569da19.jpeg\",\r\n      \"recipe\": [\r\n        \"Lava y corta la lechuga romana.\",\r\n        \"Añade crutones y queso parmesano rallado.\",\r\n        \"Prepara la salsa con mayonesa, ajo, limón, anchoas y queso parmesano.\",\r\n        \"Vierte la salsa sobre la lechuga y mezcla bien.\",\r\n        \"Agrega más parmesano al gusto antes de servir.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Paella Valenciana\",\r\n      \"author\": \"Chef Ana González\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/paella_4b9d56f036.jpeg\",\r\n      \"recipe\": [\r\n        \"Sofríe pollo y conejo en una paellera hasta dorar.\",\r\n        \"Añade judía verde, garrofón y tomate triturado.\",\r\n        \"Agrega arroz y caldo de pollo.\",\r\n        \"Incorpora azafrán, sal y pimentón.\",\r\n        \"Cocina a fuego lento hasta que el arroz esté en su punto.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Tacos al Pastor\",\r\n      \"author\": \"Chef Luis Ramírez\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/tacos_6e6b075d0f.jpeg\",\r\n      \"recipe\": [\r\n        \"Marina la carne de cerdo en una mezcla de achiote, piña y especias.\",\r\n        \"Cocina la carne en una parrilla o sartén hasta dorar.\",\r\n        \"Corta la carne en trozos pequeños.\",\r\n        \"Sirve la carne en tortillas de maíz con piña, cebolla y cilantro.\",\r\n        \"Acompaña con salsa verde y limón.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Sushi de Salmón\",\r\n      \"author\": \"Chef Kazuo Tanaka\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/sushi_d2a9cca7f1.jpeg\",\r\n      \"recipe\": [\r\n        \"Lava y cocina el arroz para sushi.\",\r\n        \"Mezcla el arroz cocido con vinagre de arroz, azúcar y sal.\",\r\n        \"Corta el salmón en tiras delgadas.\",\r\n        \"Forma pequeñas bolas de arroz y coloca una tira de salmón encima.\",\r\n        \"Sirve con salsa de soja y wasabi.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Curry de Pollo\",\r\n      \"author\": \"Chef Priya Sharma\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/curry_a06bf8ce16.jpeg\",\r\n      \"recipe\": [\r\n        \"Sofríe cebolla, ajo y jengibre en una sartén.\",\r\n        \"Añade las especias: cúrcuma, comino, y garam masala.\",\r\n        \"Agrega el pollo y cocina hasta dorar.\",\r\n        \"Vierte leche de coco y cocina a fuego lento hasta que el pollo esté tierno.\",\r\n        \"Sirve con arroz basmati y cilantro fresco.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Pizza Margarita\",\r\n      \"author\": \"Chef Marco Rossi\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/flutter_pizza_a9b42f3711.jpg\",\r\n      \"recipe\": [\r\n        \"Prepara una base de pizza con harina, agua y levadura.\",\r\n        \"Extiende la masa y cubre con salsa de tomate.\",\r\n        \"Añade queso mozzarella y albahaca fresca.\",\r\n        \"Hornea a 220°C hasta que el queso esté derretido y la masa crujiente.\",\r\n        \"Sirve caliente y disfruta.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Ramen Japonés\",\r\n      \"author\": \"Chef Haruto Sato\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/ramen_711b4f6e26.jpeg\",\r\n      \"recipe\": [\r\n        \"Cocina el caldo con huesos de cerdo, jengibre y ajo durante varias horas.\",\r\n        \"Cocina los fideos de ramen en agua hirviendo.\",\r\n        \"Sirve los fideos en el caldo caliente.\",\r\n        \"Añade toppings como huevo cocido, cebolleta y carne de cerdo.\",\r\n        \"Acompaña con salsa de soja y aceite de sésamo.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Hamburguesa Clásica\",\r\n      \"author\": \"Chef Tomás Pérez\",\r\n      \"image_link\": \"https://example.com/images/hamburguesa_clasica.jpg\",\r\n      \"recipe\": [\r\n        \"Forma la carne molida en hamburguesas y sazona con sal y pimienta.\",\r\n        \"Cocina las hamburguesas en una parrilla o sartén.\",\r\n        \"Tuesta los panes de hamburguesa.\",\r\n        \"Coloca la carne en el pan con queso, lechuga, tomate y cebolla.\",\r\n        \"Acompaña con papas fritas y condimentos al gusto.\"\r\n      ]\r\n    },\r\n    {\r\n      \"name\": \"Brownies de Chocolate\",\r\n      \"author\": \"Chef Sofía Durán\",\r\n      \"image_link\": \"https://static.platzi.com/media/uploads/Brownies_2ed8f0e619.jpeg\",\r\n      \"recipe\": [\r\n        \"Derrite chocolate y mantequilla juntos.\",\r\n        \"Bate los huevos con azúcar y mezcla con el chocolate derretido.\",\r\n        \"Añade harina y nueces picadas.\",\r\n        \"Vierte la mezcla en un molde y hornea a 180°C por 25 minutos.\",\r\n        \"Corta en cuadros y sirve.\"\r\n      ]\r\n    }\r\n  ]\r\n}\r\n",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "247a3988-bbba-4578-89b9-f5a1904f4c30"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}

@@ -1,21 +1,40 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:recipe_book/screens/recipe_detail.dart';
+import 'package:http/http.dart' as http;
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  Future<List<dynamic>> fetchRecipes() async {
+    // Android 10.0.2.2
+    // IOS 127.0.0.1
+    // WEB
+    final url = Uri.parse('http://10.0.2.2:12346/recipes');
+    final response = await http.get(url);
+    final data = jsonDecode(response.body);
+    return data['recipes'];
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        children: <Widget>[
-          _RecipesCard(context),
-          _RecipesCard(context),
-        ],
+      body: FutureBuilder<List<dynamic>>(
+        future: fetchRecipes(), 
+        builder: (context, snapshot){
+          final recipes = snapshot.data ?? [];
+          return ListView.builder(
+            itemCount: recipes.length,
+            itemBuilder: (context, index){
+              return _RecipesCard(context,recipes[index]);
+            } );
+
+        }
       ),
       floatingActionButton: FloatingActionButton(
           backgroundColor: Colors.orange,
-          child: Icon(
+          child: const Icon(
             Icons.add,
             color: Colors.white,
           ),
@@ -33,35 +52,36 @@ class HomeScreen extends StatelessWidget {
               width: MediaQuery.of(context).size.width,
               height: 600,
               color: Colors.white,
-              child: RecipeForm(),
+              child: const RecipeForm(),
             ));
   }
 
-  Widget _RecipesCard(BuildContext context) {
+  Widget _RecipesCard(BuildContext context, dynamic recipe) {
     return GestureDetector(
       onTap: () {
-        Navigator.push(context, MaterialPageRoute(builder: (context) => RecipeDetail(recipeName: 'Lasagna')));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => RecipeDetail(recipeName: recipe['name']
+      )));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width,
           height: 125,
           child: Card(
             child: Row(
               children: <Widget>[
-                Container(
+                SizedBox(
                   height: 125,
                   width: 100,
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(12),
                     child: Image.network(
-                      'https://static.platzi.com/media/uploads/flutter_lasana_b894f1aee1.jpg',
+                      recipe['image_link'],
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 26,
                 ),
                 Column(
@@ -69,10 +89,10 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      'Lasagna',
-                      style: TextStyle(fontSize: 16, fontFamily: 'Quicksand'),
+                      recipe['name'],
+                      style: const TextStyle(fontSize: 16, fontFamily: 'Quicksand'),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                     Container(
@@ -80,9 +100,9 @@ class HomeScreen extends StatelessWidget {
                       width: 75,
                       color: Colors.orange,
                     ),
-                    Text('Alison J',
+                    const Text('Alisonn',
                         style: TextStyle(fontSize: 16, fontFamily: 'Quicksand')),
-                    SizedBox(
+                    const SizedBox(
                       height: 4,
                     ),
                   ],
@@ -115,14 +135,14 @@ class RecipeForm extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              const Text(
                 'Add New Recipe',
                 style: TextStyle(
                   color: Colors.orange,
                   fontSize: 24,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               _buildTextField(
@@ -134,7 +154,7 @@ class RecipeForm extends StatelessWidget {
                     }
                     return null;
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               _buildTextField(
@@ -146,7 +166,7 @@ class RecipeForm extends StatelessWidget {
                     }
                     return null;
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               _buildTextField(
@@ -158,7 +178,7 @@ class RecipeForm extends StatelessWidget {
                     }
                     return null;
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               _buildTextField(
@@ -171,7 +191,7 @@ class RecipeForm extends StatelessWidget {
                     }
                     return null;
                   }),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
               Center(
@@ -185,7 +205,7 @@ class RecipeForm extends StatelessWidget {
                         backgroundColor: Colors.orange,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10))),
-                    child: Text(
+                    child: const Text(
                       'Save Recipe',
                       style: TextStyle(
                           color: Colors.white,
@@ -206,7 +226,7 @@ class RecipeForm extends StatelessWidget {
     return TextFormField(
       decoration: InputDecoration(
           labelText: label,
-          labelStyle: TextStyle(
+          labelStyle: const TextStyle(
             fontFamily: 'Quicksand',
             color: Colors.orange,
           ),
@@ -214,7 +234,7 @@ class RecipeForm extends StatelessWidget {
             borderRadius: BorderRadius.circular(10),
           ),
           focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: Colors.orange, width: 1),
+              borderSide: const BorderSide(color: Colors.orange, width: 1),
               borderRadius: BorderRadius.circular(10))),
       validator: validator,
       maxLines: maxLines,
