@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class Recipe{
   String name;
   String author;
-  String image_link;
+  String imageLink;
   List<String> recipeSteps;
 
   Recipe({
     required this.name,
     required this.author,
-    required this.image_link,
+    required this.imageLink,
     required this.recipeSteps
   });
 
@@ -17,7 +17,7 @@ class Recipe{
     return Recipe(
       name: json['name'],
       author: json['author'],
-      image_link: json['image_link'],
+      imageLink: json['image_link'],
       recipeSteps: List<String>.from(json['recipe'])
     );
   }
@@ -26,14 +26,14 @@ class Recipe{
     return {
       'name': name,
       'author': author,
-      'image_link': image_link,
+      'image_link': imageLink,
       'recipe': recipeSteps
     };
   }
 
   @override
   String toString(){
-    return 'Recipe{name: $name, author: $author, image_link: $image_link , recipe: $recipeSteps }';
+    return 'Recipe{name: $name, author: $author, image_link: $imageLink , recipe: $recipeSteps }';
   }
 
 }
