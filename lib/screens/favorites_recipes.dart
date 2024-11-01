@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:recipe_book/models/recipe_model.dart';
 import 'package:recipe_book/providers/recipes_provider.dart';
 import 'package:recipe_book/screens/recipe_detail.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class FavoritesRecipes extends StatelessWidget {
   const FavoritesRecipes({super.key});
@@ -17,13 +18,13 @@ class FavoritesRecipes extends StatelessWidget {
 
           return favoritesRecipes.isEmpty
               ? Center(
-                  child: Text('No favorites reciper'),
+                  child: Text(AppLocalizations.of(context)!.noRecipes),
                 )
               : ListView.builder(
                   itemCount: favoritesRecipes.length,
                   itemBuilder: (contex, index) {
                     final recipe = favoritesRecipes[index];
-                    favoriteRecipesCard(recipe: recipe);
+                    return favoriteRecipesCard(recipe: recipe);
                   });
         },
       ),
@@ -44,13 +45,34 @@ class favoriteRecipesCard extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => RecipeDetail(recipesData: recipe)));
       },
-      child: Card(
-        color: Colors.white,
-        child: Column(
-          children: [
-            Text(recipe.name),
-            Text(recipe.author),
-          ],
+      child: Semantics(
+        label: 'Tarjeta de recetas',
+        hint: 'Toca para ver detalle de receta ${recipe.name}',
+        child: Card(
+          color: Colors.white,
+          child: Column(
+            children: [
+              Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 200,
+                  child: Image.network(
+                    recipe.imageLink,
+                    fit: BoxFit.fill,
+                  )),
+              Text(
+                recipe.name,
+                style: TextStyle(
+                    color: Colors.orange,
+                    fontFamily: 'Quicksand',
+                    fontWeight: FontWeight.w700,
+                    fontSize: 18,      
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(recipe.author),
+              SizedBox(height: 8),
+            ],
+          ),
         ),
       ),
     );
