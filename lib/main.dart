@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
             GlobalMaterialLocalizations.delegate
           ],
           debugShowCheckedModeBanner: false,
-          title: 'Hola Mundo',
+          title: 'Recipes Book',
           home: RecipeBook()),
     );
   }
