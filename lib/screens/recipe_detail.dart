@@ -45,6 +45,20 @@ class _RecipeDetailState extends State<RecipeDetail> {
           icon: Icon(isFavorite ? Icons.favorite : Icons.favorite_border))
         ],
       ),
+      body: Padding(
+        padding: EdgeInsets.all(18),
+        child: Column(children: [
+          Image.network(widget.recipesData.imageLink),
+          SizedBox(height: 8,),
+          Text(widget.recipesData.name),
+          SizedBox(height: 8,),
+          Text("by ${widget.recipesData.name}"),
+          SizedBox(height: 8,),
+          Text('Recipes steps:'),
+          for (var step in widget.recipesData.recipeSteps) Text("- $step"),
+        ],),
+      ),
+
     );
   }
 }
